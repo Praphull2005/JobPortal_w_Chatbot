@@ -9,6 +9,7 @@ import companyRoutes from './routes/compony.routes.js';
 import jobRoutes from './routes/job.routes.js';
 import applicationRoutes from './routes/application.routes.js';
 const app = express();
+import path from "path";
 
 app.get('/home', (req, res) => {
     return res.status(200).json({
@@ -24,6 +25,8 @@ app.use((req, res, next) => {
     next();
 });
 
+const _dirname = path.resolve();
+
 //middleware
 app.use(express.urlencoded({extended : true}));
 app.use(cookieParser());
@@ -35,6 +38,11 @@ app.use('/user',userRoutes);
 app.use('/company',companyRoutes);
 app.use('/job',jobRoutes);
 app.use('/application',applicationRoutes);
+
+app.use(express.static(path.join(_dirname, "/frontend/dist")));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(_dirname, "frontend" , "dist", "index.html"));
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
