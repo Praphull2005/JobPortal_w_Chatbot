@@ -36,11 +36,8 @@ export const Navbar = () => {
         <header className="bg-white shadow-sm sticky top-0 z-50">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
-                    <div onClick={() => navigate('/')} className="flex items-center gap-1 cursor-pointer">
-                        <Avatar className={'w-15 h-15'}>
-                            <AvatarImage src="https://files.oaiusercontent.com/file-JcWgRorn6avmCip9DZNFKT?se=2025-04-01T13%3A41%3A37Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D7557ece1-fe60-440a-bdad-a2b63b255e02.webp&sig=9bQFf5eUtUDS35cr3Bxy9bKNoYYy771OVVpKo1SPtd0%3D" />
-                        </Avatar>
-                        <h1 className="text-l font-bold">Get<span className="text-[#F83002]">&</span><span>Post</span></h1>
+                    <div onClick={() => navigate('/')} className="flex items-center gap-1 cursor-pointer">                      
+                        <h1 className="text-2xl font-bold">Get<span className="text-[#F83002]">&</span><span>Post</span></h1>
                     </div>
 
                     {/* Desktop Navigation */}
