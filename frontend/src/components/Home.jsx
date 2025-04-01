@@ -22,11 +22,11 @@ function Home() {
 
   return (
     <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <HeroSection/>
         <CategoryCarousel/>
         <LatestJobs/>
-        <Footer/> 
+        {/* <Footer/>  */}
         <AIButton/> {/* Add this line */}
          
     </div>

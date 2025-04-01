@@ -3,7 +3,6 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Label } from "../ui/label"
 import { RadioGroup } from "../ui/radio-group"
-import { Navbar } from "../shared/Navbar"
 import { useState } from "react"
 import axios from "axios"
 import { USER_API_END_POINT } from "@/constants/constant"
@@ -56,13 +55,12 @@ function Login() {
     };
 
     return (
-        <div>
-            <Navbar />
-            <div className="flex items-center justify-center max-w-7xl mx-auto">
-                <form onSubmit={SubmitHandler} className="w-1/2 border border-gray-200 rounded-md p-6 my-10">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+            <div className="flex items-center justify-center">
+                <form onSubmit={SubmitHandler} className="w-full sm:w-3/4 md:w-1/2 border border-gray-200 rounded-md p-6 my-4 sm:my-10">
                     <h1 className="font-bold text-xl mb-5">Login</h1>
 
-                    <div>
+                    <div className="mb-4">
                         <Label>Email</Label>
                         <Input
                             type="email"
@@ -70,10 +68,11 @@ function Login() {
                             name="email"
                             onChange={changeEventHandler}
                             placeholder="example@gmail.com"
+                            className="mt-1"
                         />
                     </div>
 
-                    <div>
+                    <div className="mb-4">
                         <Label>Password</Label>
                         <Input
                             type="password"
@@ -81,12 +80,13 @@ function Login() {
                             name="password"
                             onChange={changeEventHandler}
                             placeholder="Enter your password"
+                            className="mt-1"
                         />
                     </div>
 
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row items-center justify-between mb-4">
                         <RadioGroup>
-                            <div className="flex items-center gap-4 my-5">
+                            <div className="flex items-center gap-4 my-3">
                                 <div className="flex items-center space-x-2">
                                     <Input
                                         type="radio"

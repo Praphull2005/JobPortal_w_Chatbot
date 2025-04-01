@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { Navbar } from "../shared/Navbar";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -35,7 +34,7 @@ function CompanyCreate() {
     }
     return (
         <div>
-            <Navbar />
+            
             <div className="max-w-4xl mx-auto my-10">
                 <div className="my-5">
                     <h1 className="font-bold text-2xl">Your Company Name</h1>

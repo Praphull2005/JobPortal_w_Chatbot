@@ -1,5 +1,4 @@
 import { ArrowLeft } from "lucide-react"
-import { Navbar } from "../shared/Navbar"
 import { Button } from "../ui/button"
 import { Label } from "../ui/label"
 import { Input } from "../ui/input"
@@ -74,7 +73,7 @@ function CompanySetup() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="max-w-xl mx-auto my-10">
         <form onSubmit={submitHandler}>
           <div className="flex items-center gap-15 p-8">
