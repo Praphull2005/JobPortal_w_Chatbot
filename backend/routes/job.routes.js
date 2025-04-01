@@ -37,25 +37,24 @@ router.post('/post', isAuthenticated, async(req, res) =>{
     }
 })
 
-router.get('/get', isAuthenticated, async(req, res) => {
+// Add this to your job routes
+router.get('/public/get', async(req, res) => {
     try {
         const keyword = req.query.keyword || "";
         const query = {
             $or:[
-                {title:{$regex: keyword, $options: "i"}},
-                {description:{$regex: keyword, $options: "i"}},
-            ]
+                {title: {$regex: keyword, $options: "i"}},
+                {description: {$regex: keyword, $options: "i"}},
+            ],
+            status: 'active' // Only show active jobs
         }
 
-        const jobs = await Job.find(query).populate({
-            path:"company"
-        }).sort({createdAt: -1});
-        if(!jobs){
-            return res.status(400).json({
-                message: "Job not found",
-                success: false
+        const jobs = await Job.find(query)
+            .populate({
+                path: "company",
+                select: "name logo" // Only get necessary company fields
             })
-        }
+            .sort({createdAt: -1});
 
         return res.status(200).json({
             jobs,
@@ -63,7 +62,7 @@ router.get('/get', isAuthenticated, async(req, res) => {
         })
     } catch (error) {
         console.error(error);
-        res.status(500).json({error : 'Internal server error'})
+        res.status(500).json({error: 'Internal server error'})
     }
 })
 
